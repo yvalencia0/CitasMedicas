@@ -21,8 +21,8 @@ def personaApi(request,id=0):
         persona_serializer = PersonaSerializer(data=persona_data)
         if persona_serializer.is_valid():
             persona_serializer.save()
-            return JsonResponse("Added Successfully!!" , safe=False)
-        return JsonResponse("Failed to Add.",safe=False)
+            return JsonResponse("Agregó Exitosamente!!" , safe=False)
+        return JsonResponse("Falló al agregar.",safe=False)
     
     elif request.method=='PUT':
         persona_data = JSONParser().parse(request)
@@ -30,7 +30,7 @@ def personaApi(request,id=0):
         persona_serializer=PersonaSerializer(persona,data=persona_data)
         if persona_serializer.is_valid():
             persona_serializer.save()
-            return JsonResponse("Updated Successfully!!", safe=False)
+            return JsonResponse("Actualización Exitosa!!", safe=False)
         return JsonResponse("Failed to Update.", safe=False)
 
     elif request.method=='DELETE':
